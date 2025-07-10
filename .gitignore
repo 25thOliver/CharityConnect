@@ -1,0 +1,22 @@
+# Node
+charity-frontend/node_modules/
+charity-frontend/dist/
+charity-frontend/.vite/
+charity-frontend/.next/
+
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+*.log
+.env
+.env.*
+.envrc
+env/
+.venv/
+
+# VSCode
+.vscode/
+
+# Mac/Linux
+.DS_Store
