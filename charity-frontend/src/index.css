@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Charity platform design system - warm, trustworthy colors that encourage giving
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 10% 15%;
+
+    /* Charity blue-green for trust and growth */
+    --primary: 185 85% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 185 75% 35%;
+    --primary-glow: 185 60% 45%;
+
+    /* Warm coral accent for donation CTAs */
+    --accent: 15 85% 60%;
+    --accent-foreground: 0 0% 98%;
+    --accent-light: 15 75% 70%;
+
+    /* Success green for completed donations */
+    --success: 140 70% 45%;
+    --success-light: 140 60% 55%;
+
+    --secondary: 210 15% 96%;
+    --secondary-foreground: 210 10% 25%;
+
+    --muted: 210 10% 96%;
+    --muted-foreground: 210 10% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 15% 88%;
+    --input: 210 15% 92%;
+    --ring: 185 85% 25%;
+
+    /* Gradients for impact */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--accent)) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 4px 12px hsl(var(--primary) / 0.08);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.15);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 15% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 210 15% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 210 15% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 185 70% 55%;
+    --primary-foreground: 210 15% 8%;
+    --primary-light: 185 60% 65%;
+    --primary-glow: 185 50% 75%;
+
+    --accent: 15 75% 65%;
+    --accent-foreground: 210 15% 8%;
+    --accent-light: 15 65% 75%;
+
+    --success: 140 60% 55%;
+    --success-light: 140 50% 65%;
+
+    --secondary: 210 15% 15%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 210 15% 15%;
+    --muted-foreground: 210 10% 65%;
+
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 15% 20%;
+    --input: 210 15% 18%;
+    --ring: 185 70% 55%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-light)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--accent)) 100%);
+
+    --shadow-card: 0 4px 12px hsl(var(--primary) / 0.15);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.25);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
