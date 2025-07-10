@@ -47,7 +47,6 @@ const CampaignDetail: React.FC = () => {
   const [donationAmount, setDonationAmount] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-
   const { user } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -77,7 +76,6 @@ const CampaignDetail: React.FC = () => {
 
     fetchData();
   }, [id, navigate, toast]);
-
 
   const handleDonation = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,7 +108,7 @@ const CampaignDetail: React.FC = () => {
         variant: 'default',
       });
 
-      // Navigate to thank-you page after a delay to let user see the updated progress
+      // Optional: Navigate to thank-you page after a delay to let user see the updated progress
       setTimeout(() => {
         navigate('/thank-you', { state: { campaign: campaign!.title, amount } });
       }, 3000); // 3 second delay
