@@ -48,7 +48,6 @@ const CampaignDetail: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shouldRefresh, setShouldRefresh] = useState(false);
 
-
   const { user } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -73,13 +72,12 @@ const CampaignDetail: React.FC = () => {
         navigate('/');
       } finally {
         setLoading(false);
-        setShouldRefresh(false); // ✅ Reset trigger
+        setShouldRefresh(false);
       }
     };
 
     fetchData();
   }, [id, shouldRefresh]);
-
 
   const handleDonation = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -104,35 +102,25 @@ const CampaignDetail: React.FC = () => {
       setCampaign(updatedCampaign);
 
       setDonationAmount('');
-      setShouldRefresh(true);  // 🔁 Trigger re-fetch
-      navigate('/thank-you', { state: { campaign: campaign!.title, amount } });
+      
+      // Show success message and updated progress before navigating
+      toast({
+        title: 'Donation successful!',
+        description: `Thank you ${user.full_name || user.username} for your donation of ${fmtKES(amount)}`,
+        variant: 'default',
+      });
+      
+      // Small delay to let user see the updated progress bar
+      setTimeout(() => {
+        navigate('/thank-you', { state: { campaign: campaign!.title, amount } });
+      }, 1500);
+      
     } catch {
       toast({ title: 'Donation failed', description: 'Please try again later', variant: 'destructive' });
     } finally {
       setIsSubmitting(false);
     }
   };
-
- useEffect(() => {
-  if (!id) return;
-  setLoading(true);
-  apiService.getCampaign(+id)
-    .then(setCampaign)
-    .catch((error) => {
-      console.error('Error fetching campaign:', error);
-      toast({
-        title: 'Failed to refresh campaign',
-        description: 'Try again later',
-        variant: 'destructive'
-      });
-    })
-    .finally(() => {
-      setLoading(false);
-      if (shouldRefresh) setShouldRefresh(false);
-    });
-}, [id, shouldRefresh]);
-
-
 
   const fmtKES = (amt: number) =>
     new Intl.NumberFormat('en-KE', {
@@ -196,8 +184,8 @@ const CampaignDetail: React.FC = () => {
                 <Input
                   id="donation-amount"
                   type="number"
-                  min="1"
-                  step="100"
+                  min="100"
+                  step="1"
                   value={donationAmount}
                   onChange={(e) => setDonationAmount(e.target.value)}
                   required
@@ -215,7 +203,7 @@ const CampaignDetail: React.FC = () => {
         </Card>
       </div>
 
-      {/* ✅ New Comments Component */}
+      {/* Comments Component */}
       <section className="max-w-4xl mx-auto px-4">
         <CommentSection
           campaignId={campaign.id}

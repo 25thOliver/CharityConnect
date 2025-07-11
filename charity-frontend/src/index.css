@@ -2,128 +2,133 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Charity platform design system - warm, trustworthy colors that encourage giving
-All colors MUST be HSL.
-*/
+/* Modern Charity Platform Design System - Contemporary, trustworthy colors */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 10% 15%;
+    --foreground: 222 84% 4.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 10% 15%;
+    --card-foreground: 222 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 10% 15%;
+    --popover-foreground: 222 84% 4.9%;
 
-    /* Charity blue-green for trust and growth */
-    --primary: 185 85% 25%;
+    /* Modern teal primary - professional and trustworthy */
+    --primary: 173 58% 39%;
     --primary-foreground: 0 0% 98%;
-    --primary-light: 185 75% 35%;
-    --primary-glow: 185 60% 45%;
+    --primary-light: 173 58% 49%;
+    --primary-glow: 173 58% 59%;
 
-    /* Warm coral accent for donation CTAs */
-    --accent: 15 85% 60%;
+    /* Vibrant coral accent for calls-to-action */
+    --accent: 16 100% 66%;
     --accent-foreground: 0 0% 98%;
-    --accent-light: 15 75% 70%;
+    --accent-light: 16 100% 76%;
 
-    /* Success green for completed donations */
-    --success: 140 70% 45%;
-    --success-light: 140 60% 55%;
+    /* Rich emerald success for completed actions */
+    --success: 158 64% 52%;
+    --success-light: 158 64% 62%;
 
-    --secondary: 210 15% 96%;
-    --secondary-foreground: 210 10% 25%;
+    /* Sophisticated slate secondary */
+    --secondary: 215 25% 97%;
+    --secondary-foreground: 215 25% 27%;
 
-    --muted: 210 10% 96%;
-    --muted-foreground: 210 10% 45%;
+    /* Refined muted tones */
+    --muted: 215 16% 96%;
+    --muted-foreground: 215 16% 46%;
 
+    /* Modern red for errors */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 15% 88%;
-    --input: 210 15% 92%;
-    --ring: 185 85% 25%;
+    /* Clean borders and inputs */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 173 58% 39%;
 
-    /* Gradients for impact */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    /* Elegant gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
     --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-light)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--accent)) 100%);
 
-    /* Shadows */
-    --shadow-card: 0 4px 12px hsl(var(--primary) / 0.08);
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.15);
+    /* Subtle shadows */
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.15);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-foreground: 222 84% 4.9%;
+    --sidebar-primary: 222 84% 4.9%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 84% 4.9%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 173 58% 39%;
   }
 
   .dark {
-    --background: 210 15% 8%;
-    --foreground: 0 0% 98%;
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-    --card: 210 15% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 210 15% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 185 70% 55%;
-    --primary-foreground: 210 15% 8%;
-    --primary-light: 185 60% 65%;
-    --primary-glow: 185 50% 75%;
+    /* Brighter teal for dark mode */
+    --primary: 173 58% 49%;
+    --primary-foreground: 222 84% 4.9%;
+    --primary-light: 173 58% 59%;
+    --primary-glow: 173 58% 69%;
 
-    --accent: 15 75% 65%;
-    --accent-foreground: 210 15% 8%;
-    --accent-light: 15 65% 75%;
+    /* Vibrant coral for dark mode */
+    --accent: 16 100% 76%;
+    --accent-foreground: 222 84% 4.9%;
+    --accent-light: 16 100% 86%;
 
-    --success: 140 60% 55%;
-    --success-light: 140 50% 65%;
+    /* Bright emerald for dark mode */
+    --success: 158 64% 62%;
+    --success-light: 158 64% 72%;
 
-    --secondary: 210 15% 15%;
-    --secondary-foreground: 0 0% 90%;
+    /* Dark slate secondary */
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 15% 15%;
-    --muted-foreground: 210 10% 65%;
+    /* Dark muted tones */
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --destructive: 0 75% 65%;
-    --destructive-foreground: 0 0% 98%;
+    /* Bright red for dark mode */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 210 15% 20%;
-    --input: 210 15% 18%;
-    --ring: 185 70% 55%;
+    /* Dark borders and inputs */
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 173 58% 49%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
     --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-light)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--accent)) 100%);
 
-    --shadow-card: 0 4px 12px hsl(var(--primary) / 0.15);
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.25);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark shadows */
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.25);
+
+    --sidebar-background: 222 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 40% 98%;
+    --sidebar-primary-foreground: 222 84% 4.9%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 173 58% 49%;
   }
 }
 
@@ -134,5 +139,36 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  .shadow-card {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.15);
+  }
+  
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+  }
+  
+  .gradient-success {
+    background: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-light)));
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
+  }
+  
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--accent)) 100%);
   }
 }

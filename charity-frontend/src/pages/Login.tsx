@@ -80,6 +80,14 @@ const Login = () => {
                   placeholder="Enter your password"
                   className="h-11"
                 />
+                <div className="text-right">
+                  <Link 
+                    to="/forgot-password" 
+                    className="text-sm text-muted-foreground hover:text-foreground"
+                  >
+                    Forgot password?
+                  </Link>
+                </div>
               </div>
 
               <Button

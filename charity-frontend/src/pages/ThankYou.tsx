@@ -2,10 +2,12 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useAuth } from '@/contexts/AuthContext';
 
 const ThankYou = () => {
   const location = useLocation();
   const { campaign, amount } = location.state || {};
+  const { user } = useAuth();
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -35,7 +37,7 @@ const ThankYou = () => {
               </svg>
             </div>
             <CardTitle className="text-3xl text-foreground mb-2">
-              Thank You for Your Generosity!
+              Thank You, {user?.full_name || user?.username || 'Generous Donor'}!
             </CardTitle>
             <p className="text-muted-foreground text-lg">
               Your donation has been successfully processed

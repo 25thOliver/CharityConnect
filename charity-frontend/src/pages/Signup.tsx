@@ -10,6 +10,7 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     full_name: '',
     username: '',
+    email: '',
     password: '',
     confirmPassword: '',
   });
@@ -35,6 +36,13 @@ const Signup = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      // You could add a toast notification here
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       setPasswordMatch(false);
       return;
@@ -45,6 +53,7 @@ const Signup = () => {
     const success = await signup({
       name: formData.full_name, // ✅ Match Django backend
       username: formData.username,
+      email: formData.email,
       password: formData.password,
     });
 
@@ -96,6 +105,20 @@ const Signup = () => {
                   value={formData.username}
                   onChange={handleChange}
                   placeholder="Choose a unique username"
+                  className="h-11"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter your email address"
                   className="h-11"
                 />
               </div>

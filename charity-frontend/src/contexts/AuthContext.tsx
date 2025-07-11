@@ -56,28 +56,31 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const response = await apiService.login(data);
 
       const access = response.access;
+      console.log("Received access token:", access);
+      
+      // Store token in localStorage first
+      localStorage.setItem('authToken', access);
       setToken(access);
 
-      const decoded = jwtDecode<{ username: string }>(access);
+      // Small delay to ensure localStorage is updated
+      await new Promise(resolve => setTimeout(resolve, 100));
 
-      const user: User = {
-        id: 0, // Use real ID if available in backend
-        username: decoded.username,
-        full_name: decoded.username, // Optional, adjust as needed
-      };
+      // Fetch full user profile including donor name
+      console.log("Fetching user profile...");
+      const userProfile = await apiService.getMyProfile();
+      console.log("User profile received:", userProfile);
 
-      setUser(user);
-
-      localStorage.setItem('authToken', access);
-      localStorage.setItem('authUser', JSON.stringify(user));
+      setUser(userProfile);
+      localStorage.setItem('authUser', JSON.stringify(userProfile));
 
       toast({
         title: 'Welcome back!',
-        description: `Logged in as ${user.username}`,
+        description: `Welcome back, ${userProfile.full_name || userProfile.username}!`,
       });
 
       return true;
     } catch (error: any) {
+      console.error("Login error:", error);
       toast({
         title: 'Login failed',
         description: error.response?.data?.detail || 'Please check your credentials.',

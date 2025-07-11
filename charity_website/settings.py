@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt',
     'corsheaders',
     'donations',
     'django_filters',
@@ -66,12 +67,9 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
         'rest_framework.filters.OrderingFilter',
         'django_filters.rest_framework.DjangoFilterBackend'
-
     ),
-    'DEFAULT_PAGINATION_CLASS': 
-        'rest_framework.pagination.PageNumberPagination',
-        'PAGE_SIZE': 9,
-    
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 9,
 }
 
 MEDIA_URL = '/media/'
@@ -157,3 +155,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # For Gmail
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@gmail.com'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'your-app-password'  # Replace with your app password
+DEFAULT_FROM_EMAIL = 'your-email@gmail.com'  # Replace with your email
+
+# For development, you can use console backend instead
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Password Reset Settings
+PASSWORD_RESET_TIMEOUT = 3600  # 1 hour in seconds
