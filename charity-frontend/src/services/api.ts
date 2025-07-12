@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/api';
+// Force HTTP for development
+const API_BASE_URL = 'http://127.0.0.1:8000/api';
+
+console.log('API Base URL:', API_BASE_URL);
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -14,6 +17,7 @@ api.interceptors.request.use((config) => {
   const token = localStorage.getItem('authToken');
   console.log("Auth token going out:", token);
   console.log("Request URL:", config.url);
+  console.log("Full request URL:", config.baseURL + config.url);
   console.log("Request method:", config.method);
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
@@ -23,6 +27,19 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
+
+// Add response interceptor for debugging
+api.interceptors.response.use(
+  (response) => {
+    console.log("Response received:", response.status, response.config.url);
+    return response;
+  },
+  (error) => {
+    console.error("API Error:", error.message);
+    console.error("Error config:", error.config);
+    return Promise.reject(error);
+  }
+);
 
 export interface Campaign {
   id: number;
